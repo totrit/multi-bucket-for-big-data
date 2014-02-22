@@ -1,0 +1,37 @@
+Input: A large number of integers which were contained in the 'file', and
+a integer 'topN' stands for the sequence of the number that is intended to be
+picked(1-based);
+Output: The mid number of the numbers.
+
+function multi_bucket(file, base_int, topN)
+if file.size() < BUCKET_PROC_UNTIL_SIZE then
+   array[] = open(file).read()
+   quick_sort(array)
+   return array[topN - 1]
+else
+    bucket_num <- sqrt(file.size() / sizeof(int))
+    integer_range_per_bucket <- bucket_num
+    rename file -> tmpFile
+    dest_files[] = new files named with 0-based integers
+    src_file = open tmpFile
+    for every integer i in src_file do
+        bucket_index = (i - base_int) / interge_range_per_bucket
+        bucket_index = min(bucket_index, bucket_num - 1)
+        dest_files[bucket_index].write(i)
+    end
+    close(dest_files[])
+    close(src_file)
+    counter = 0
+    target_bucket = -1
+    for f in dest_files counter < topN do
+        counter += f.size() / sizeof(int)
+        target_bucket ++
+    end
+    rmfiles(src_file)
+    rmfiles(dest_files) except target_bucket
+    multi_bucket(dest_files[target_bucket], base_int + target_bucket *
+    integer_range_per_bucket, topN - (counter - dest_files[target_bucket].size()))
+endif
+end //of funciton
+
+external function quick_sort(array, array_size)

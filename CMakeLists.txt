@@ -1,0 +1,6 @@
+PROJECT (multi-bucket)
+SET(SRC_LIST src/multi-bucket.cpp)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "bin/")
+MESSAGE(STATUS "This is BINARY dir " ${HELLO_BINARY_DIR})
+MESSAGE(STATUS "This is SOURCE dir "${HELLO_SOURCE_DIR})
+ADD_EXECUTABLE(multi-bucket ${SRC_LIST})
